@@ -17,14 +17,18 @@ function createStyles(palette: Palette) {
       color: palette.ink,
       backgroundColor: palette.paper,
     },
-    brandRow: { flexDirection: 'row', alignItems: 'center', marginBottom: 22 },
-    brandTick: { width: 8, height: 8, backgroundColor: palette.accent, marginRight: 8 },
+    brandRow: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center',
+      marginBottom: 24,
+    },
+    brandTick: { width: 9, height: 9, borderRadius: 2, backgroundColor: palette.accent, marginRight: 8 },
     brand: {
-      fontFamily: 'Inter',
+      fontFamily: 'Cormorant',
       fontWeight: 600,
-      fontSize: 11,
-      letterSpacing: 3,
-      textTransform: 'uppercase',
+      fontSize: 18,
+      letterSpacing: 0.5,
       color: palette.ink,
     },
     title: { fontFamily: 'Cormorant', fontWeight: 600, fontSize: 25, lineHeight: 1.12, marginBottom: 14 },
@@ -39,8 +43,7 @@ function createStyles(palette: Palette) {
       color: palette.stone,
     },
     metaDate: {
-      marginTop: 6,
-      textAlign: 'center',
+      marginBottom: 14,
       fontSize: 8.5,
       letterSpacing: 1,
       textTransform: 'uppercase',
@@ -51,13 +54,13 @@ function createStyles(palette: Palette) {
 
     block: { marginBottom: 22 },
     blockHead: { flexDirection: 'row', alignItems: 'center', marginBottom: 12 },
-    blockLabel: { fontFamily: 'Cormorant', fontWeight: 500, fontSize: 14, color: palette.ink },
-    blockHairline: {
-      flex: 1,
-      borderBottomWidth: 1,
-      borderBottomColor: palette.line,
-      marginLeft: 10,
-      marginBottom: 4,
+    blockLabel: {
+      fontFamily: 'Cormorant',
+      fontWeight: 600,
+      fontSize: 15,
+      color: palette.ink,
+      marginHorizontal: 14,
+      textAlign: 'center',
     },
 
     sides: { flexDirection: 'row' },
@@ -132,6 +135,7 @@ export function ReportDocument({ report, palette = color }: { report: Report; pa
         {report.title ? <Text style={styles.title}>{report.title}</Text> : null}
 
         <View style={styles.metaBlock}>
+          {date ? <Text style={styles.metaDate}>{date}</Text> : null}
           {report.location ? (
             <View style={styles.dividerRow}>
               <View style={styles.dividerLine} />
@@ -141,7 +145,6 @@ export function ReportDocument({ report, palette = color }: { report: Report; pa
           ) : (
             <View style={styles.rule} />
           )}
-          {date ? <Text style={styles.metaDate}>{date}</Text> : null}
         </View>
 
         {report.description ? <Text style={styles.description}>{report.description}</Text> : null}
@@ -167,8 +170,9 @@ function BlockView({ block, index, styles }: { block: Block; index: number; styl
   return (
     <View style={styles.block} wrap={false}>
       <View style={styles.blockHead}>
+        <View style={styles.dividerLine} />
         <Text style={styles.blockLabel}>{heading}</Text>
-        <View style={styles.blockHairline} />
+        <View style={styles.dividerLine} />
       </View>
       <View style={styles.sides}>
         <SideView title="Antes" images={block.before} after={false} styles={styles} />
