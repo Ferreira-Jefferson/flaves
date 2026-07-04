@@ -17,7 +17,15 @@ function createStyles(palette: Palette) {
       color: palette.ink,
       backgroundColor: palette.paper,
     },
-    title: { fontFamily: 'Cormorant', fontWeight: 600, fontSize: 25, lineHeight: 1.12, marginBottom: 14 },
+    title: {
+      fontFamily: 'Cormorant',
+      fontWeight: 600,
+      fontSize: 25,
+      lineHeight: 1.12,
+      marginBottom: 14,
+      maxLines: 2,
+      textOverflow: 'ellipsis',
+    },
     metaBlock: { marginBottom: 24 },
     dividerRow: { flexDirection: 'row', alignItems: 'center' },
     dividerLine: { flex: 1, borderBottomWidth: 1, borderBottomColor: palette.line },
@@ -36,7 +44,16 @@ function createStyles(palette: Palette) {
       color: palette.stone,
     },
     rule: { borderBottomWidth: 1, borderBottomColor: palette.line },
-    description: { fontSize: 10.5, lineHeight: 1.5, color: palette.ink, marginBottom: 26, maxWidth: 440 },
+    // maxLines garante que o 1º bloco (mesmo 3+3) caiba sempre na 1ª página.
+    description: {
+      fontSize: 10.5,
+      lineHeight: 1.5,
+      color: palette.ink,
+      marginBottom: 26,
+      maxWidth: 440,
+      maxLines: 3,
+      textOverflow: 'ellipsis',
+    },
 
     block: { marginBottom: 22 },
     blockHead: { flexDirection: 'row', alignItems: 'center', marginBottom: 12 },
@@ -69,7 +86,7 @@ function createStyles(palette: Palette) {
       padding: 4,
       marginBottom: 8,
     },
-    photo: { width: '100%', height: 150, objectFit: 'cover' },
+    photo: { width: '100%', height: 132, objectFit: 'cover' },
     emptyFrame: {
       borderWidth: 1,
       borderStyle: 'dashed',

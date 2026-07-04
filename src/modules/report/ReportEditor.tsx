@@ -36,6 +36,7 @@ export function ReportEditor() {
           <input
             className={styles.input}
             value={report.title}
+            maxLength={90}
             onChange={(e) => setField('title', e.target.value)}
             placeholder="Ex: Reforma de cozinha — Apartamento Centro"
           />
@@ -57,6 +58,7 @@ export function ReportEditor() {
             className={styles.textarea}
             value={report.description}
             rows={3}
+            maxLength={220}
             onChange={(e) => setField('description', e.target.value)}
             placeholder="Resumo do serviço realizado"
           />
