@@ -25,11 +25,26 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
     color: color.ink,
   },
-  title: { fontFamily: 'Fraunces', fontWeight: 600, fontSize: 25, lineHeight: 1.12, marginBottom: 8 },
-  metaLine: { flexDirection: 'row', alignItems: 'center', marginBottom: 14, flexWrap: 'wrap' },
-  metaText: { fontSize: 9, letterSpacing: 1, textTransform: 'uppercase', color: color.stone },
-  metaDot: { marginHorizontal: 6, color: color.stone, fontSize: 9 },
-  rule: { borderBottomWidth: 1, borderBottomColor: color.line, marginBottom: 18 },
+  title: { fontFamily: 'Fraunces', fontWeight: 600, fontSize: 25, lineHeight: 1.12, marginBottom: 14 },
+  metaBlock: { marginBottom: 24 },
+  dividerRow: { flexDirection: 'row', alignItems: 'center' },
+  dividerLine: { flex: 1, borderBottomWidth: 1, borderBottomColor: color.line },
+  dividerText: {
+    marginHorizontal: 14,
+    fontSize: 9.5,
+    letterSpacing: 1.5,
+    textTransform: 'uppercase',
+    color: color.stone,
+  },
+  metaDate: {
+    marginTop: 6,
+    textAlign: 'center',
+    fontSize: 8.5,
+    letterSpacing: 1,
+    textTransform: 'uppercase',
+    color: color.stone,
+  },
+  rule: { borderBottomWidth: 1, borderBottomColor: color.line },
   description: { fontSize: 10.5, lineHeight: 1.5, color: color.ink, marginBottom: 26, maxWidth: 440 },
 
   block: { marginBottom: 22 },
@@ -110,15 +125,18 @@ export function ReportDocument({ report }: { report: Report }) {
 
         {report.title ? <Text style={styles.title}>{report.title}</Text> : null}
 
-        {report.location || date ? (
-          <View style={styles.metaLine}>
-            {report.location ? <Text style={styles.metaText}>{report.location}</Text> : null}
-            {report.location && date ? <Text style={styles.metaDot}>·</Text> : null}
-            {date ? <Text style={styles.metaText}>{date}</Text> : null}
-          </View>
-        ) : null}
-
-        <View style={styles.rule} />
+        <View style={styles.metaBlock}>
+          {report.location ? (
+            <View style={styles.dividerRow}>
+              <View style={styles.dividerLine} />
+              <Text style={styles.dividerText}>{report.location}</Text>
+              <View style={styles.dividerLine} />
+            </View>
+          ) : (
+            <View style={styles.rule} />
+          )}
+          {date ? <Text style={styles.metaDate}>{date}</Text> : null}
+        </View>
 
         {report.description ? <Text style={styles.description}>{report.description}</Text> : null}
 

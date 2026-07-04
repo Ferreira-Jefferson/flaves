@@ -31,8 +31,7 @@
 }
 
 .input,
-.textarea,
-.blockLabel {
+.textarea {
   font-family: var(--font-body);
   font-size: 15px;
   color: var(--ink);
@@ -44,8 +43,7 @@
 }
 
 .input::placeholder,
-.textarea::placeholder,
-.blockLabel::placeholder {
+.textarea::placeholder {
   color: #a9abac;
 }
 
@@ -55,8 +53,7 @@
 }
 
 .input:focus,
-.textarea:focus,
-.blockLabel:focus {
+.textarea:focus {
   outline: none;
   border-color: var(--accent);
   box-shadow: 0 0 0 3px var(--accent-weak);
@@ -79,20 +76,20 @@
 .blockHead {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 12px;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
-.blockNum {
+.blockEyebrow {
   font-family: var(--font-display);
-  font-weight: 500;
+  font-weight: 600;
   font-size: 15px;
-  white-space: nowrap;
+  color: var(--ink);
 }
 
-.blockHead .blockLabel {
-  flex: 1;
-  min-width: 0;
+.block .field {
+  margin-bottom: 16px;
 }
 
 .ghostBtn {

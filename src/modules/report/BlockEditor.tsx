@@ -26,19 +26,23 @@ export function BlockEditor({
   return (
     <section className={styles.block}>
       <header className={styles.blockHead}>
-        <span className={styles.blockNum}>Bloco {index + 1}</span>
-        <input
-          className={styles.blockLabel}
-          value={block.label}
-          onChange={(e) => onLabelChange(e.target.value)}
-          placeholder="Cômodo ou área (opcional) — ex: Cozinha"
-        />
+        <span className={styles.blockEyebrow}>Antes e depois {index + 1}</span>
         {canRemove && (
           <button type="button" className={styles.ghostBtn} onClick={onRemoveBlock}>
             Remover
           </button>
         )}
       </header>
+
+      <label className={styles.field}>
+        <span className={styles.fieldLabel}>Cômodo ou área (opcional)</span>
+        <input
+          className={styles.input}
+          value={block.label}
+          onChange={(e) => onLabelChange(e.target.value)}
+          placeholder="Ex: Cozinha"
+        />
+      </label>
 
       <div className={styles.sides}>
         <ImageSlots
