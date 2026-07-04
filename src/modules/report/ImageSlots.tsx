@@ -45,7 +45,7 @@ export function ImageSlots({ block, side, label, disabled, onAdd, onRemove }: Pr
           >
             <span className={styles.plus}>+</span>
             <span className={styles.addHint}>
-              {images.length === 0 ? 'Adicionar foto' : `mais ${remaining}`}
+              {images.length === 0 ? `Até ${MAX_IMAGES_PER_SIDE} fotos` : `Mais ${remaining}`}
             </span>
           </button>
         )}
@@ -55,10 +55,11 @@ export function ImageSlots({ block, side, label, disabled, onAdd, onRemove }: Pr
         ref={inputRef}
         type="file"
         accept="image/*"
-        multiple
+        multiple={remaining > 1}
         hidden
         onChange={(e) => {
-          const files = Array.from(e.target.files ?? [])
+          // corta o excedente já na seleção — nunca passa do limite por lado
+          const files = Array.from(e.target.files ?? []).slice(0, remaining)
           if (files.length) onAdd(files)
           e.target.value = ''
         }}
