@@ -1,4 +1,5 @@
 import { pdf } from '@react-pdf/renderer'
+import { type Palette } from '@/shared/ui/tokens'
 import { type Report } from '../domain'
 import { ReportDocument } from './ReportDocument'
 
@@ -18,8 +19,8 @@ function fileName(report: Report): string {
 }
 
 // Gera o PDF no navegador e dispara o download.
-export async function downloadReportPdf(report: Report): Promise<void> {
-  const blob = await pdf(<ReportDocument report={report} />).toBlob()
+export async function downloadReportPdf(report: Report, palette: Palette): Promise<void> {
+  const blob = await pdf(<ReportDocument report={report} palette={palette} />).toBlob()
   const url = URL.createObjectURL(blob)
   const link = document.createElement('a')
   link.href = url

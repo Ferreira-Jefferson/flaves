@@ -1,4 +1,5 @@
 import { ReportEditor } from '@/modules/report/ReportEditor'
+import { ThemePicker } from '@/shared/ui/ThemePicker'
 
 export function App() {
   return (
@@ -9,6 +10,9 @@ export function App() {
           flaves
         </div>
         <p className="tagline">Relatórios de antes &amp; depois</p>
+        <div className="headerActions">
+          <ThemePicker />
+        </div>
       </header>
       <main className="appMain">
         <ReportEditor />

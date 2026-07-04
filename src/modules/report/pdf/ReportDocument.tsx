@@ -1,105 +1,110 @@
 import { Document, Page, View, Text, Image, StyleSheet } from '@react-pdf/renderer'
-import { color } from '@/shared/ui/tokens'
+import { color, type Palette } from '@/shared/ui/tokens'
 import { type Block, type ImageAsset, type Report } from '../domain'
 import { registerPdfFonts } from './fonts'
 
 registerPdfFonts()
 
-const styles = StyleSheet.create({
-  page: {
-    paddingTop: 48,
-    paddingBottom: 56,
-    paddingHorizontal: 48,
-    fontFamily: 'Inter',
-    fontSize: 10,
-    color: color.ink,
-    backgroundColor: color.card,
-  },
-  brandRow: { flexDirection: 'row', alignItems: 'center', marginBottom: 22 },
-  brandTick: { width: 8, height: 8, backgroundColor: color.accent, marginRight: 8 },
-  brand: {
-    fontFamily: 'Inter',
-    fontWeight: 600,
-    fontSize: 11,
-    letterSpacing: 3,
-    textTransform: 'uppercase',
-    color: color.ink,
-  },
-  title: { fontFamily: 'Fraunces', fontWeight: 600, fontSize: 25, lineHeight: 1.12, marginBottom: 14 },
-  metaBlock: { marginBottom: 24 },
-  dividerRow: { flexDirection: 'row', alignItems: 'center' },
-  dividerLine: { flex: 1, borderBottomWidth: 1, borderBottomColor: color.line },
-  dividerText: {
-    marginHorizontal: 14,
-    fontSize: 9.5,
-    letterSpacing: 1.5,
-    textTransform: 'uppercase',
-    color: color.stone,
-  },
-  metaDate: {
-    marginTop: 6,
-    textAlign: 'center',
-    fontSize: 8.5,
-    letterSpacing: 1,
-    textTransform: 'uppercase',
-    color: color.stone,
-  },
-  rule: { borderBottomWidth: 1, borderBottomColor: color.line },
-  description: { fontSize: 10.5, lineHeight: 1.5, color: color.ink, marginBottom: 26, maxWidth: 440 },
+// Estilos derivados da paleta ativa, para o PDF ficar na mesma cor da tela.
+function createStyles(palette: Palette) {
+  return StyleSheet.create({
+    page: {
+      paddingTop: 48,
+      paddingBottom: 56,
+      paddingHorizontal: 48,
+      fontFamily: 'Inter',
+      fontSize: 10,
+      color: palette.ink,
+      backgroundColor: palette.card,
+    },
+    brandRow: { flexDirection: 'row', alignItems: 'center', marginBottom: 22 },
+    brandTick: { width: 8, height: 8, backgroundColor: palette.accent, marginRight: 8 },
+    brand: {
+      fontFamily: 'Inter',
+      fontWeight: 600,
+      fontSize: 11,
+      letterSpacing: 3,
+      textTransform: 'uppercase',
+      color: palette.ink,
+    },
+    title: { fontFamily: 'Fraunces', fontWeight: 600, fontSize: 25, lineHeight: 1.12, marginBottom: 14 },
+    metaBlock: { marginBottom: 24 },
+    dividerRow: { flexDirection: 'row', alignItems: 'center' },
+    dividerLine: { flex: 1, borderBottomWidth: 1, borderBottomColor: palette.line },
+    dividerText: {
+      marginHorizontal: 14,
+      fontSize: 9.5,
+      letterSpacing: 1.5,
+      textTransform: 'uppercase',
+      color: palette.stone,
+    },
+    metaDate: {
+      marginTop: 6,
+      textAlign: 'center',
+      fontSize: 8.5,
+      letterSpacing: 1,
+      textTransform: 'uppercase',
+      color: palette.stone,
+    },
+    rule: { borderBottomWidth: 1, borderBottomColor: palette.line },
+    description: { fontSize: 10.5, lineHeight: 1.5, color: palette.ink, marginBottom: 26, maxWidth: 440 },
 
-  block: { marginBottom: 22 },
-  blockHead: { flexDirection: 'row', alignItems: 'center', marginBottom: 12 },
-  blockLabel: { fontFamily: 'Fraunces', fontWeight: 500, fontSize: 14, color: color.ink },
-  blockHairline: {
-    flex: 1,
-    borderBottomWidth: 1,
-    borderBottomColor: color.line,
-    marginLeft: 10,
-    marginBottom: 4,
-  },
+    block: { marginBottom: 22 },
+    blockHead: { flexDirection: 'row', alignItems: 'center', marginBottom: 12 },
+    blockLabel: { fontFamily: 'Fraunces', fontWeight: 500, fontSize: 14, color: palette.ink },
+    blockHairline: {
+      flex: 1,
+      borderBottomWidth: 1,
+      borderBottomColor: palette.line,
+      marginLeft: 10,
+      marginBottom: 4,
+    },
 
-  sides: { flexDirection: 'row' },
-  side: { flex: 1 },
-  sideGap: { width: 16 },
-  tag: {
-    fontSize: 8.5,
-    fontWeight: 600,
-    letterSpacing: 1.5,
-    textTransform: 'uppercase',
-    color: color.stone,
-    marginBottom: 6,
-  },
-  tagAfter: { color: color.accent },
+    sides: { flexDirection: 'row' },
+    side: { flex: 1 },
+    sideGap: { width: 16 },
+    tag: {
+      fontSize: 8.5,
+      fontWeight: 600,
+      letterSpacing: 1.5,
+      textTransform: 'uppercase',
+      color: palette.stone,
+      marginBottom: 6,
+    },
+    tagAfter: { color: palette.accent },
 
-  frame: {
-    borderWidth: 1,
-    borderColor: color.line,
-    backgroundColor: color.card,
-    padding: 4,
-    marginBottom: 8,
-  },
-  photo: { width: '100%', height: 150, objectFit: 'cover' },
-  emptyFrame: {
-    borderWidth: 1,
-    borderStyle: 'dashed',
-    borderColor: color.line,
-    height: 60,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: 8,
-  },
-  emptyText: { fontSize: 8, color: color.stone },
+    frame: {
+      borderWidth: 1,
+      borderColor: palette.line,
+      backgroundColor: palette.card,
+      padding: 4,
+      marginBottom: 8,
+    },
+    photo: { width: '100%', height: 150, objectFit: 'cover' },
+    emptyFrame: {
+      borderWidth: 1,
+      borderStyle: 'dashed',
+      borderColor: palette.line,
+      height: 60,
+      alignItems: 'center',
+      justifyContent: 'center',
+      marginBottom: 8,
+    },
+    emptyText: { fontSize: 8, color: palette.stone },
 
-  footer: {
-    position: 'absolute',
-    bottom: 28,
-    left: 48,
-    right: 48,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  footerText: { fontSize: 8, letterSpacing: 1, textTransform: 'uppercase', color: color.stone },
-})
+    footer: {
+      position: 'absolute',
+      bottom: 28,
+      left: 48,
+      right: 48,
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+    },
+    footerText: { fontSize: 8, letterSpacing: 1, textTransform: 'uppercase', color: palette.stone },
+  })
+}
+
+type Styles = ReturnType<typeof createStyles>
 
 function formatDate(): string {
   try {
@@ -113,7 +118,8 @@ function formatDate(): string {
   }
 }
 
-export function ReportDocument({ report }: { report: Report }) {
+export function ReportDocument({ report, palette = color }: { report: Report; palette?: Palette }) {
+  const styles = createStyles(palette)
   const date = formatDate()
   return (
     <Document title={report.title || 'Relatório flaves'} author="flaves">
@@ -141,7 +147,7 @@ export function ReportDocument({ report }: { report: Report }) {
         {report.description ? <Text style={styles.description}>{report.description}</Text> : null}
 
         {report.blocks.map((block, i) => (
-          <BlockView key={block.id} block={block} index={i} />
+          <BlockView key={block.id} block={block} index={i} styles={styles} />
         ))}
 
         <View style={styles.footer} fixed>
@@ -156,7 +162,7 @@ export function ReportDocument({ report }: { report: Report }) {
   )
 }
 
-function BlockView({ block, index }: { block: Block; index: number }) {
+function BlockView({ block, index, styles }: { block: Block; index: number; styles: Styles }) {
   const heading = block.label.trim() || `Antes & depois ${index + 1}`
   return (
     <View style={styles.block} wrap={false}>
@@ -165,9 +171,9 @@ function BlockView({ block, index }: { block: Block; index: number }) {
         <View style={styles.blockHairline} />
       </View>
       <View style={styles.sides}>
-        <SideView title="Antes" images={block.before} after={false} />
+        <SideView title="Antes" images={block.before} after={false} styles={styles} />
         <View style={styles.sideGap} />
-        <SideView title="Depois" images={block.after} after />
+        <SideView title="Depois" images={block.after} after styles={styles} />
       </View>
     </View>
   )
@@ -177,10 +183,12 @@ function SideView({
   title,
   images,
   after,
+  styles,
 }: {
   title: string
   images: ImageAsset[]
   after: boolean
+  styles: Styles
 }) {
   return (
     <View style={styles.side}>

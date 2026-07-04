@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useTheme } from '@/shared/ui/useTheme'
 import { type Side } from './domain'
 import { useReport } from './useReport'
 import { BlockEditor } from './BlockEditor'
@@ -7,6 +8,7 @@ import styles from './report.module.css'
 export function ReportEditor() {
   const { report, busy, setField, addBlock, removeBlock, setBlockLabel, addImages, removeImage } =
     useReport()
+  const { palette } = useTheme()
   const [generating, setGenerating] = useState(false)
 
   const hasImages = report.blocks.some((b) => b.before.length > 0 || b.after.length > 0)
@@ -17,7 +19,7 @@ export function ReportEditor() {
     try {
       // carrega o @react-pdf sob demanda (mantém o carregamento inicial leve)
       const { downloadReportPdf } = await import('./pdf/generate')
-      await downloadReportPdf(report)
+      await downloadReportPdf(report, palette)
     } catch (err) {
       console.error(err)
       alert('Não foi possível gerar o PDF. Tente novamente.')
