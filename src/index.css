@@ -1,17 +1,17 @@
 :root {
   --ink: #17181a;
   --stone: #74777a;
-  --paper: #f3f3f1;
+  --paper: #e7f0e9;
   --card: #ffffff;
-  --line: #e3e2dd;
+  --line: #cfe0d4;
   --accent: #3b5a4e;
-  --accent-weak: #eaf0ec;
+  --accent-weak: #dbeae0;
 
   --maxw: 900px;
   --r-sm: 6px;
   --r-md: 10px;
   --font-body: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-display: 'Fraunces', Georgia, serif;
+  --font-display: 'Cormorant', Georgia, serif;
 }
 
 * {
@@ -64,11 +64,12 @@ body {
   gap: 9px;
 }
 
-.brandTick {
-  width: 11px;
-  height: 11px;
-  background: var(--accent);
+.brandMark {
+  width: 20px;
+  height: 20px;
   display: inline-block;
+  color: var(--accent);
+  border-radius: 5px;
 }
 
 .tagline {
@@ -78,9 +79,7 @@ body {
 }
 
 .headerActions {
-  position: absolute;
-  top: 16px;
-  right: 20px;
+  margin-top: 4px;
 }
 
 .appMain {

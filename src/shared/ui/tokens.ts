@@ -20,7 +20,7 @@ const neutrals = {
   card: '#FFFFFF',
 } as const
 
-export type ThemeId = 'eucalipto' | 'nevoa' | 'argila' | 'lavanda' | 'trigo'
+export type ThemeId = 'eucalipto' | 'nevoa' | 'argila' | 'lavanda' | 'trigo' | 'rose'
 
 export interface Theme {
   id: ThemeId
@@ -32,27 +32,32 @@ export const themes: readonly Theme[] = [
   {
     id: 'eucalipto',
     label: 'Eucalipto',
-    palette: { ...neutrals, paper: '#F3F3F1', line: '#E3E2DD', accent: '#3B5A4E', accentWeak: '#EAF0EC' },
+    palette: { ...neutrals, paper: '#E7F0E9', line: '#CFE0D4', accent: '#3B5A4E', accentWeak: '#DBEAE0' },
   },
   {
     id: 'nevoa',
     label: 'Névoa',
-    palette: { ...neutrals, paper: '#F1F3F5', line: '#DEE4E9', accent: '#4B6A82', accentWeak: '#E7EEF3' },
+    palette: { ...neutrals, paper: '#E6EFF6', line: '#CFDEEC', accent: '#4B6A82', accentWeak: '#DAE8F2' },
   },
   {
     id: 'argila',
     label: 'Argila',
-    palette: { ...neutrals, paper: '#F6F2F0', line: '#E9DFDA', accent: '#A05C48', accentWeak: '#F3E8E3' },
+    palette: { ...neutrals, paper: '#F5E9E2', line: '#EAD3C7', accent: '#A05C48', accentWeak: '#EFDBD1' },
   },
   {
     id: 'lavanda',
     label: 'Lavanda',
-    palette: { ...neutrals, paper: '#F4F2F6', line: '#E4E0EA', accent: '#6C5E88', accentWeak: '#EDEAF3' },
+    palette: { ...neutrals, paper: '#ECE8F4', line: '#DAD2E8', accent: '#6C5E88', accentWeak: '#E2DBF0' },
   },
   {
     id: 'trigo',
     label: 'Trigo',
-    palette: { ...neutrals, paper: '#F6F4EE', line: '#E7E2D3', accent: '#7C6A34', accentWeak: '#F1EDDD' },
+    palette: { ...neutrals, paper: '#F4EEDA', line: '#E5DABB', accent: '#7C6A34', accentWeak: '#EDE3C6' },
+  },
+  {
+    id: 'rose',
+    label: 'Rosé',
+    palette: { ...neutrals, paper: '#F5E8ED', line: '#EAD0DA', accent: '#96566A', accentWeak: '#EFDAE2' },
   },
 ] as const
 
@@ -62,7 +67,7 @@ export const defaultThemeId: ThemeId = 'eucalipto'
 export const color: Palette = themes[0].palette
 
 export const font = {
-  display: 'Fraunces', // títulos e rótulos de bloco
+  display: 'Cormorant', // títulos e rótulos de bloco
   body: 'Inter', // corpo, UI, labels
 } as const
 

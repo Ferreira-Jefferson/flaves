@@ -14,7 +14,7 @@
 - `useReport.ts` — estado da feature (campos, blocos, imagens). Enforce máx. 3 imagens/lado.
 - `ReportEditor.tsx` → `BlockEditor.tsx` → `ImageSlots.tsx` — UI em 3 níveis.
 - `report.module.css` — estilos co-locados.
-- `pdf/` — `fonts.ts` (registra Fraunces/Inter), `ReportDocument.tsx` (layout), `generate.tsx` (blob + download).
+- `pdf/` — `fonts.ts` (registra Cormorant/Inter), `ReportDocument.tsx` (layout), `generate.tsx` (blob + download).
 
 ## Depende de (shared)
 

@@ -15,7 +15,7 @@ function createStyles(palette: Palette) {
       fontFamily: 'Inter',
       fontSize: 10,
       color: palette.ink,
-      backgroundColor: palette.card,
+      backgroundColor: palette.paper,
     },
     brandRow: { flexDirection: 'row', alignItems: 'center', marginBottom: 22 },
     brandTick: { width: 8, height: 8, backgroundColor: palette.accent, marginRight: 8 },
@@ -27,7 +27,7 @@ function createStyles(palette: Palette) {
       textTransform: 'uppercase',
       color: palette.ink,
     },
-    title: { fontFamily: 'Fraunces', fontWeight: 600, fontSize: 25, lineHeight: 1.12, marginBottom: 14 },
+    title: { fontFamily: 'Cormorant', fontWeight: 600, fontSize: 25, lineHeight: 1.12, marginBottom: 14 },
     metaBlock: { marginBottom: 24 },
     dividerRow: { flexDirection: 'row', alignItems: 'center' },
     dividerLine: { flex: 1, borderBottomWidth: 1, borderBottomColor: palette.line },
@@ -51,7 +51,7 @@ function createStyles(palette: Palette) {
 
     block: { marginBottom: 22 },
     blockHead: { flexDirection: 'row', alignItems: 'center', marginBottom: 12 },
-    blockLabel: { fontFamily: 'Fraunces', fontWeight: 500, fontSize: 14, color: palette.ink },
+    blockLabel: { fontFamily: 'Cormorant', fontWeight: 500, fontSize: 14, color: palette.ink },
     blockHairline: {
       flex: 1,
       borderBottomWidth: 1,

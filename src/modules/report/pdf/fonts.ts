@@ -5,12 +5,12 @@ import { Font } from '@react-pdf/renderer'
 import inter400 from '@fontsource/inter/files/inter-latin-400-normal.woff'
 import inter500 from '@fontsource/inter/files/inter-latin-500-normal.woff'
 import inter600 from '@fontsource/inter/files/inter-latin-600-normal.woff'
-import fraunces500 from '@fontsource/fraunces/files/fraunces-latin-500-normal.woff'
-import fraunces600 from '@fontsource/fraunces/files/fraunces-latin-600-normal.woff'
+import cormorant500 from '@fontsource/cormorant/files/cormorant-latin-500-normal.woff'
+import cormorant600 from '@fontsource/cormorant/files/cormorant-latin-600-normal.woff'
 
 let registered = false
 
-// Registra Fraunces + Inter no @react-pdf/renderer usando os arquivos servidos
+// Registra Cormorant + Inter no @react-pdf/renderer usando os arquivos servidos
 // pelo próprio app (same-origin) — nada de fetch externo na hora de gerar o PDF.
 export function registerPdfFonts(): void {
   if (registered) return
@@ -23,10 +23,10 @@ export function registerPdfFonts(): void {
     ],
   })
   Font.register({
-    family: 'Fraunces',
+    family: 'Cormorant',
     fonts: [
-      { src: fraunces500, fontWeight: 500 },
-      { src: fraunces600, fontWeight: 600 },
+      { src: cormorant500, fontWeight: 500 },
+      { src: cormorant600, fontWeight: 600 },
     ],
   })
   // Evita hifenização automática estranha em palavras longas.
