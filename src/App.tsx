@@ -22,7 +22,7 @@ export function App() {
             />
             <rect x="246" y="150" width="20" height="212" fill="#FFFFFF" opacity="0.9" />
           </svg>
-          flaves
+          flavis
         </div>
         <p className="tagline">Relatórios de antes &amp; depois</p>
         <div className="headerActions">

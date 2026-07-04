@@ -4,7 +4,7 @@
 
 import { defaultThemeId, themes, type Palette, type Theme, type ThemeId } from './tokens'
 
-const STORAGE_KEY = 'flaves.theme'
+const STORAGE_KEY = 'flavis.theme'
 
 const VAR_BY_KEY: Record<keyof Palette, string> = {
   ink: '--ink',

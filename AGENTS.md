@@ -1,4 +1,4 @@
-# AGENTS.md — flaves
+# AGENTS.md — flavis
 
 Gerador de relatórios **antes & depois** para serviços de reforma. Roda 100% no
 navegador (sem backend, sem banco, sem login). SPA em React instalável como app

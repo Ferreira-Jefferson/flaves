@@ -128,7 +128,7 @@ export function ReportDocument({ report, palette = color }: { report: Report; pa
   const styles = createStyles(palette)
   const date = formatDate()
   return (
-    <Document title={report.title || 'Relatório flaves'} author="flaves">
+    <Document title={report.title || 'Relatório flavis'} author="flavis">
       <Page size="A4" style={styles.page}>
         {report.title ? <Text style={styles.title}>{report.title}</Text> : null}
 
@@ -152,7 +152,7 @@ export function ReportDocument({ report, palette = color }: { report: Report; pa
         ))}
 
         <View style={styles.footer} fixed>
-          <Text style={styles.footerText}>flaves · antes & depois</Text>
+          <Text style={styles.footerText}>flavis · antes & depois</Text>
           <Text
             style={styles.footerText}
             render={({ pageNumber, totalPages }) => `${pageNumber} / ${totalPages}`}

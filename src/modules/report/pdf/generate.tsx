@@ -15,7 +15,7 @@ function fileName(report: Report): string {
       .replace(/[^a-z0-9]+/g, '-')
       .replace(/^-+|-+$/g, '')
       .slice(0, 60) || 'relatorio'
-  return `flaves-${slug}.pdf`
+  return `flavis-${slug}.pdf`
 }
 
 // Gera o PDF no navegador e dispara o download.
