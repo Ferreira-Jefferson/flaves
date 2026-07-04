@@ -17,20 +17,6 @@ function createStyles(palette: Palette) {
       color: palette.ink,
       backgroundColor: palette.paper,
     },
-    brandRow: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'center',
-      marginBottom: 24,
-    },
-    brandTick: { width: 9, height: 9, borderRadius: 2, backgroundColor: palette.accent, marginRight: 8 },
-    brand: {
-      fontFamily: 'Cormorant',
-      fontWeight: 600,
-      fontSize: 18,
-      letterSpacing: 0.5,
-      color: palette.ink,
-    },
     title: { fontFamily: 'Cormorant', fontWeight: 600, fontSize: 25, lineHeight: 1.12, marginBottom: 14 },
     metaBlock: { marginBottom: 24 },
     dividerRow: { flexDirection: 'row', alignItems: 'center' },
@@ -127,11 +113,6 @@ export function ReportDocument({ report, palette = color }: { report: Report; pa
   return (
     <Document title={report.title || 'Relatório flaves'} author="flaves">
       <Page size="A4" style={styles.page}>
-        <View style={styles.brandRow}>
-          <View style={styles.brandTick} />
-          <Text style={styles.brand}>flaves</Text>
-        </View>
-
         {report.title ? <Text style={styles.title}>{report.title}</Text> : null}
 
         <View style={styles.metaBlock}>
