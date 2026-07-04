@@ -29,7 +29,10 @@ export function registerPdfFonts(): void {
       { src: cormorant600, fontWeight: 600 },
     ],
   })
-  // Evita hifenização automática estranha em palavras longas.
-  Font.registerHyphenationCallback((word) => [word])
+  // Quebra apenas palavras MUITO longas (ex: strings coladas sem espaço) para
+  // não estourar a largura; palavras normais permanecem inteiras.
+  Font.registerHyphenationCallback((word) =>
+    word.length > 20 ? (word.match(/.{1,18}/g) ?? [word]) : [word],
+  )
   registered = true
 }

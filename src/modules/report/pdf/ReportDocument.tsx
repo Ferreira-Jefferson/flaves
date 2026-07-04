@@ -44,14 +44,14 @@ function createStyles(palette: Palette) {
       color: palette.stone,
     },
     rule: { borderBottomWidth: 1, borderBottomColor: palette.line },
-    // maxLines garante que o 1º bloco (mesmo 3+3) caiba sempre na 1ª página.
+    // Ocupa a largura dos separadores; quebra em até 5 linhas e nunca estoura
+    // (palavras longas são quebradas pela hyphenationCallback em fonts.ts).
     description: {
       fontSize: 10.5,
       lineHeight: 1.5,
       color: palette.ink,
       marginBottom: 26,
-      maxWidth: 440,
-      maxLines: 3,
+      maxLines: 5,
       textOverflow: 'ellipsis',
     },
 

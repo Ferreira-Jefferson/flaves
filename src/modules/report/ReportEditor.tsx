@@ -65,9 +65,9 @@ export function ReportEditor() {
           <textarea
             className={styles.textarea}
             value={report.description}
-            rows={3}
-            maxLength={220}
-            onChange={(e) => setField('description', e.target.value)}
+            rows={4}
+            maxLength={420}
+            onChange={(e) => setField('description', e.target.value.split('\n').slice(0, 5).join('\n'))}
             placeholder="Resumo do serviço realizado"
           />
         </label>
