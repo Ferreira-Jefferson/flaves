@@ -7,6 +7,11 @@ Thumbs.db
 .idea/
 *.swp
 
+# Dependências e build
+node_modules/
+dist/
+dev-dist/
+
 # Logs
 *.log
 
